@@ -52,7 +52,7 @@ class ProductController extends Controller
     public function show(string $id)
     {
         //
-        $product = Product::with('category')->get()->find($id);//->get()->find($id);
+        $product = Product::with('category')->get()->find($id);
         return view('products.show', ["product"=>$product]);
     }
 
@@ -95,6 +95,5 @@ class ProductController extends Controller
         //
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Товар удалён!');
-
     }
 }

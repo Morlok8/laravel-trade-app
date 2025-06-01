@@ -39,10 +39,8 @@ class OrderController extends Controller
        $validatedData =  $request->validate([
             'FIO' => 'required|string|max:255',
             'order_date' => 'required|date',
-            //'status' => 'required|string',
             'comment' => 'nullable|string',
             'number' => 'required|numeric',
-            //'price' => 'required|numeric|min:0',
             'product_id' => 'required|numeric|exists:products,id',
         ]);
         $product = Product::findOrFail($validatedData['product_id']);
